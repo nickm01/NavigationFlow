@@ -13,6 +13,7 @@
 		C147F746245FD18300CDB363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C147F745245FD18300CDB363 /* Assets.xcassets */; };
 		C147F749245FD18300CDB363 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C147F748245FD18300CDB363 /* Preview Assets.xcassets */; };
 		C147F74C245FD18300CDB363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C147F74A245FD18300CDB363 /* LaunchScreen.storyboard */; };
+		C1F5F0FA2484862600728AFC /* CleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F5F0F92484862600728AFC /* CleanView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C147F748245FD18300CDB363 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C147F74B245FD18300CDB363 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C147F74D245FD18300CDB363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1F5F0F92484862600728AFC /* CleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				C147F73F245FD18100CDB363 /* AppDelegate.swift */,
 				C147F741245FD18100CDB363 /* SceneDelegate.swift */,
+				C1F5F0F92484862600728AFC /* CleanView.swift */,
 				C147F743245FD18100CDB363 /* ContentView.swift */,
 				C147F745245FD18300CDB363 /* Assets.xcassets */,
 				C147F74A245FD18300CDB363 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1F5F0FA2484862600728AFC /* CleanView.swift in Sources */,
 				C147F740245FD18100CDB363 /* AppDelegate.swift in Sources */,
 				C147F742245FD18100CDB363 /* SceneDelegate.swift in Sources */,
 				C147F744245FD18100CDB363 /* ContentView.swift in Sources */,
