@@ -17,29 +17,11 @@ class FlowController {
 }
 
 extension FlowController: FlowControllerViewDelegate {
-    func didTapNextFromScreen1() {
-        // Do some network actions... then
-        view?.navigate(to: .screen2)
-    }
-
-    func didTapNextFromScreen2() {
-        // Do some network actions... then
-        view?.navigate(to: .screen3)
-    }
-
-    func didTapNextAFromScreen3() {
-        // Do some network actions... then
-        view?.navigate(to: .screen4)
-    }
-
-    func didTapNextBFromScreen3() {
-        // Do some network actions... then
-        view?.navigate(to: .finalFrom3)
-    }
-
-    func didTapNextFromScreen4() {
-        // Do some network actions... then
-        view?.navigate(to: .finalFrom4)
+    func didTapNext(request: NavigateTo) {
+        // In the real world, would do a case statement here on the NavigateTo,
+        // followed by potentially some network calls
+        // before finally...
+        view?.navigate(to: request)
     }
 }
 

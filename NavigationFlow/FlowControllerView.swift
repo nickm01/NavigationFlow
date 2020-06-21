@@ -9,11 +9,16 @@
 import SwiftUI
 
 protocol FlowControllerViewDelegate: class {
-    func didTapNextFromScreen1()
-    func didTapNextFromScreen2()
-    func didTapNextAFromScreen3()
-    func didTapNextBFromScreen3()
-    func didTapNextFromScreen4()
+    func didTapNext(request: NavigateTo)
+}
+
+enum NavigateTo {
+    case screen1
+    case screen2
+    case screen3
+    case screen4
+    case finalFrom3
+    case finalFrom4
 }
 
 struct FlowControllerView: View {
@@ -25,15 +30,6 @@ struct FlowControllerView: View {
     private let navigateTo4 = FlowState()
     private let navigateToFinalFrom3 = FlowState()
     private let navigateToFinalFrom4 = FlowState()
-
-    enum NavigateTo {
-        case screen1
-        case screen2
-        case screen3
-        case screen4
-        case finalFrom3
-        case finalFrom4
-    }
 
     init(modelDelegate: FlowControllerViewDelegate) {
         self.modelDelegate = modelDelegate
@@ -59,17 +55,17 @@ struct FlowControllerView: View {
     var body: some View {
         NavigationView {
             VStack() {
-                Screen(title: "Screen 1", didTapNext: self.modelDelegate.didTapNextFromScreen1)
+                Screen(title: "Screen 1", didTapNext: { self.modelDelegate.didTapNext(request: .screen2) })
                 Flow(state: navigateTo2) {
-                    Screen(title: "Screen 2", didTapNext: self.modelDelegate.didTapNextFromScreen2)
+                    Screen(title: "Screen 2", didTapNext: { self.modelDelegate.didTapNext(request: .screen3) })
                     Flow(state: navigateTo3) {
                         BranchedScreen(
                             title: "Screen 3",
-                            didTapNextA: self.modelDelegate.didTapNextAFromScreen3,
-                            didTapNextB: self.modelDelegate.didTapNextBFromScreen3
+                            didTapNextA: { self.modelDelegate.didTapNext(request: .finalFrom3) },
+                            didTapNextB: { self.modelDelegate.didTapNext(request: .screen4) }
                         )
                         Flow(state: navigateTo4) {
-                            Screen(title: "Screen 4", didTapNext: self.modelDelegate.didTapNextFromScreen4)
+                            Screen(title: "Screen 4", didTapNext: { self.modelDelegate.didTapNext(request: .finalFrom4) })
                             Flow(state: navigateToFinalFrom4) {
                                 FinalScreen()
                             }
