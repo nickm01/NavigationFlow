@@ -9,6 +9,10 @@ Before we start what make’s a great multi-screen data entry flow? Here’s wha
 4. Flexible and allow for branching to different screens in the flow.
 5. As simple as possible but scalable.
 
-Reade more
+Read more
 [part1](https://medium.com/@nicmcconn/flow-with-swiftui-and-mvvm-7cc394440ab8)
 [part2](https://medium.com/@nicmcconn/flow-with-swiftui-and-mvvm-part-2-viewmodels-905ecc05f1c5)
+
+### Branches
+`master` - code for part 1 - Navigation
+`part2` - code for part 2 - a more comprehensive implementation which includes Navigation and ViewModels
