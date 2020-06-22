@@ -9,7 +9,17 @@
 import SwiftUI
 
 protocol FlowControllerViewDelegate: class {
-    func didTapNext(request: NavigateTo)
+    func didTapNextFromScreen1(vm: Screen1PhoneVM)
+    func didTapNextFromScreen2(vm: Screen2VerificationVM)
+    func didTapCompanyInfo(vm: Screen3NameEmailVM)
+    func didTapSkipCompanyInfo(vm: Screen3NameEmailVM)
+    func didTapNextFromScreen4(vm: Screen4WorkInfoVM)
+    func didTapNextFromScreen5()
+    func make() -> Screen1PhoneVM
+    func make() -> Screen2VerificationVM
+    func make() -> Screen3NameEmailVM
+    func make() -> Screen4WorkInfoVM
+    func make() -> Screen5FinalVM
 }
 
 enum NavigateTo {
@@ -23,7 +33,7 @@ enum NavigateTo {
 
 struct FlowControllerView: View {
 
-    weak var modelDelegate: FlowControllerViewDelegate!
+    weak var delegate: FlowControllerViewDelegate!
 
     private let navigateTo2 = FlowState()
     private let navigateTo3 = FlowState()
@@ -32,7 +42,7 @@ struct FlowControllerView: View {
     private let navigateToFinalFrom4 = FlowState()
 
     init(modelDelegate: FlowControllerViewDelegate) {
-        self.modelDelegate = modelDelegate
+        self.delegate = modelDelegate
     }
 
     func navigate(to navigateTo: NavigateTo) {
@@ -52,26 +62,58 @@ struct FlowControllerView: View {
         }
     }
 
+    var screen1Phone: LazyView<Screen1Phone> {
+        return LazyView(Screen1Phone(
+            vm: self.delegate.make(),
+            didTapNext: self.delegate.didTapNextFromScreen1
+        ))
+    }
+
+    var screen2Verification: LazyView<Screen2Verification> {
+        return LazyView(Screen2Verification(
+            vm: self.delegate.make(),
+            didTapNext: self.delegate.didTapNextFromScreen2
+        ))
+    }
+
+    var screen3NameEmail: LazyView<Screen3NameEmail> {
+        return LazyView(Screen3NameEmail(
+            vm: self.delegate.make(),
+            didTapCompanyInfo: self.delegate.didTapCompanyInfo,
+            didTapSkip: self.delegate.didTapSkipCompanyInfo
+        ))
+    }
+
+    var screen4CompanyInfo: LazyView<Screen4CompanyInfo> {
+        return LazyView(Screen4CompanyInfo(
+            vm: self.delegate.make(),
+            didTapNext: self.delegate.didTapNextFromScreen4
+        ))
+    }
+
+    var screen5Final: LazyView<Screen5Final> {
+        return LazyView(Screen5Final(
+            vm: self.delegate.make(),
+            didTapNext: self.delegate.didTapNextFromScreen5
+        ))
+    }
+
     var body: some View {
         NavigationView {
             VStack() {
-                Screen(title: "Screen 1", didTapNext: { self.modelDelegate.didTapNext(request: .screen2) })
+                screen1Phone
                 Flow(state: navigateTo2) {
-                    Screen(title: "Screen 2", didTapNext: { self.modelDelegate.didTapNext(request: .screen3) })
+                    screen2Verification
                     Flow(state: navigateTo3) {
-                        BranchedScreen(
-                            title: "Screen 3",
-                            didTapNextA: { self.modelDelegate.didTapNext(request: .finalFrom3) },
-                            didTapNextB: { self.modelDelegate.didTapNext(request: .screen4) }
-                        )
+                        screen3NameEmail
                         Flow(state: navigateTo4) {
-                            Screen(title: "Screen 4", didTapNext: { self.modelDelegate.didTapNext(request: .finalFrom4) })
+                            screen4CompanyInfo
                             Flow(state: navigateToFinalFrom4) {
-                                FinalScreen()
+                                screen5Final
                             }
                         }
                         Flow(state: navigateToFinalFrom3) {
-                            FinalScreen()
+                            screen5Final
                         }
                     }
                 }
