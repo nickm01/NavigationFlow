@@ -7,10 +7,8 @@ Before we start what make’s a great multi-screen data entry flow? Here’s wha
 2. Individual ViewModels for every screen.
 3. Overall flow control logic is separate to UI implementation and is testable without UI.
 4. Flexible and allow for branching to different screens in the flow.
-5. As simple as possible.
+5. As simple as possible but scalable.
 
-SwiftUI’s ObjectObservable and @ObservedObject pair seem to work well for ViewModels giving us the 2-way binding that has previously been missing in UIKit. There are obviously alot of approaches to ViewModels but I like to think of them as data interfaces to the view code— the view represented simply as data where the only way for the rest of the app to talk to the view is through the view model.
-
-But ViewModel implementation will be discussed in part 2. This is part 1 - Navigation.
-
-Reade more [here](https://medium.com/@nicmcconn/flow-with-swiftui-and-mvvm-7cc394440ab8)
+Reade more
+[part1](https://medium.com/@nicmcconn/flow-with-swiftui-and-mvvm-7cc394440ab8)
+[part2](https://medium.com/@nicmcconn/flow-with-swiftui-and-mvvm-part-2-viewmodels-905ecc05f1c5)

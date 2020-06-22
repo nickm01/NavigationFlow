@@ -18,6 +18,7 @@
 		C191F03D24A0372E00E78D71 /* Screen3NameEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F03C24A0372E00E78D71 /* Screen3NameEmail.swift */; };
 		C191F03F24A03D5700E78D71 /* Screen4CompanyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F03E24A03D5700E78D71 /* Screen4CompanyInfo.swift */; };
 		C191F04124A040A800E78D71 /* Screen5Final.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F04024A040A800E78D71 /* Screen5Final.swift */; };
+		C191F04424A0792700E78D71 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C191F04324A0792700E78D71 /* README.md */; };
 		C1FCBCEB248DFC5F005ACA30 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEA248DFC5F005ACA30 /* FlowController.swift */; };
 		C1FCBCED248DFCA7005ACA30 /* FlowControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEC248DFCA7005ACA30 /* FlowControllerView.swift */; };
 		C1FCBCEF248DFCD8005ACA30 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEE248DFCD8005ACA30 /* Flow.swift */; };
@@ -37,6 +38,7 @@
 		C191F03C24A0372E00E78D71 /* Screen3NameEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen3NameEmail.swift; sourceTree = "<group>"; };
 		C191F03E24A03D5700E78D71 /* Screen4CompanyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen4CompanyInfo.swift; sourceTree = "<group>"; };
 		C191F04024A040A800E78D71 /* Screen5Final.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5Final.swift; sourceTree = "<group>"; };
+		C191F04324A0792700E78D71 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C1FCBCEA248DFC5F005ACA30 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		C1FCBCEC248DFCA7005ACA30 /* FlowControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControllerView.swift; sourceTree = "<group>"; };
 		C1FCBCEE248DFCD8005ACA30 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		C147F733245FD18100CDB363 = {
 			isa = PBXGroup;
 			children = (
+				C191F04324A0792700E78D71 /* README.md */,
 				C147F73E245FD18100CDB363 /* NavigationFlow */,
 				C147F73D245FD18100CDB363 /* Products */,
 			);
@@ -167,6 +170,7 @@
 			files = (
 				C147F74C245FD18300CDB363 /* LaunchScreen.storyboard in Resources */,
 				C147F749245FD18300CDB363 /* Preview Assets.xcassets in Resources */,
+				C191F04424A0792700E78D71 /* README.md in Resources */,
 				C147F746245FD18300CDB363 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
