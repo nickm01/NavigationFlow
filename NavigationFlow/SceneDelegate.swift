@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //let contentView = FlowView(model: NavigationFlowModel())
         //let contentView = ContentView2() //FlowView2(model: NavigationFlowModel())
         flowController = FlowController()
-        let contentView = flowController.view
+        let contentView = flowController.view as! FlowControllerView
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

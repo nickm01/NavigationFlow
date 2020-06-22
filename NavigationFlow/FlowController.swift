@@ -8,25 +8,29 @@
 
 import Foundation
 
-class FlowController {
-    let model: OnboardingModel
-    var view: FlowControllerView?
+protocol FlowControllerViewProtocol {
+    func navigate(to: NavigateTo)
+}
 
-    init() {
-        self.model = OnboardingModel()
-        self.view = FlowControllerView(modelDelegate: self)
+class FlowController {
+    let model: Model
+    var view: FlowControllerViewProtocol?
+
+    init(view: FlowControllerViewProtocol? = nil) {
+        self.model = Model()
+        self.view = view ?? FlowControllerView(modelDelegate: self)
     }
 }
 
 extension FlowController: FlowControllerViewDelegate {
 
-    func didTapNextFromScreen1(vm: Screen1PhoneVM) {
+    func didTapNext(vm: Screen1PhoneVM) {
         model.update(with: vm)
         // Network call to send verification number, then...
         view?.navigate(to: .screen2)
     }
 
-    func didTapNextFromScreen2(vm: Screen2VerificationVM) {
+    func didTapNext(vm: Screen2VerificationVM) {
         // Network call to check verification number, if success then...
         view?.navigate(to: .screen3)
     }
@@ -43,12 +47,12 @@ extension FlowController: FlowControllerViewDelegate {
         view?.navigate(to: .finalFrom3)
     }
 
-    func didTapNextFromScreen4(vm: Screen4WorkInfoVM) {
+    func didTapNext(vm: Screen4WorkInfoVM) {
         // Do some network actions... then
         view?.navigate(to: .finalFrom4)
     }
 
-    func didTapNextFromScreen5() {
+    func didTapComplete() {
         // Launch main app
     }
 
@@ -72,4 +76,3 @@ extension FlowController: FlowControllerViewDelegate {
         return model.make()
     }
 }
-

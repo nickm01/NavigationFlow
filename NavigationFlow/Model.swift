@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OnboardingModel {
+class Model {
     var phoneNumber: String?
     var name: String?
     var personalEmail: String?
@@ -16,7 +16,7 @@ class OnboardingModel {
 }
 
 // ViewModel Generation
-extension OnboardingModel {
+extension Model {
     func make() -> Screen1PhoneVM {
         return Screen1PhoneVM()
     }
@@ -39,7 +39,7 @@ extension OnboardingModel {
 }
 
 // Model updates from ViewModels
-extension OnboardingModel {
+extension Model {
     func update(with vm: Screen1PhoneVM) {
         phoneNumber = vm.phoneNumber
     }

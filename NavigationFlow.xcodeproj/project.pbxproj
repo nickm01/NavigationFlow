@@ -14,7 +14,7 @@
 		C147F74C245FD18300CDB363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C147F74A245FD18300CDB363 /* LaunchScreen.storyboard */; };
 		C191F03724A01D5600E78D71 /* Screen1Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F03624A01D5600E78D71 /* Screen1Phone.swift */; };
 		C191F03924A021B400E78D71 /* Screen2Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F03824A021B400E78D71 /* Screen2Verification.swift */; };
-		C191F03B24A0277E00E78D71 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F03A24A0277E00E78D71 /* OnboardingModel.swift */; };
+		C191F03B24A0277E00E78D71 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F03A24A0277E00E78D71 /* Model.swift */; };
 		C191F03D24A0372E00E78D71 /* Screen3NameEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F03C24A0372E00E78D71 /* Screen3NameEmail.swift */; };
 		C191F03F24A03D5700E78D71 /* Screen4CompanyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F03E24A03D5700E78D71 /* Screen4CompanyInfo.swift */; };
 		C191F04124A040A800E78D71 /* Screen5Final.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F04024A040A800E78D71 /* Screen5Final.swift */; };
@@ -33,7 +33,7 @@
 		C147F74D245FD18300CDB363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C191F03624A01D5600E78D71 /* Screen1Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen1Phone.swift; sourceTree = "<group>"; };
 		C191F03824A021B400E78D71 /* Screen2Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen2Verification.swift; sourceTree = "<group>"; };
-		C191F03A24A0277E00E78D71 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		C191F03A24A0277E00E78D71 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C191F03C24A0372E00E78D71 /* Screen3NameEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen3NameEmail.swift; sourceTree = "<group>"; };
 		C191F03E24A03D5700E78D71 /* Screen4CompanyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen4CompanyInfo.swift; sourceTree = "<group>"; };
 		C191F04024A040A800E78D71 /* Screen5Final.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5Final.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 				C1FCBCEE248DFCD8005ACA30 /* Flow.swift */,
 				C1FCBCEA248DFC5F005ACA30 /* FlowController.swift */,
 				C1FCBCEC248DFCA7005ACA30 /* FlowControllerView.swift */,
-				C191F03A24A0277E00E78D71 /* OnboardingModel.swift */,
+				C191F03A24A0277E00E78D71 /* Model.swift */,
 				C191F04224A0424000E78D71 /* Screens and VMs */,
 				C147F745245FD18300CDB363 /* Assets.xcassets */,
 				C147F74A245FD18300CDB363 /* LaunchScreen.storyboard */,
@@ -185,7 +185,7 @@
 				C147F740245FD18100CDB363 /* AppDelegate.swift in Sources */,
 				C191F03724A01D5600E78D71 /* Screen1Phone.swift in Sources */,
 				C191F03D24A0372E00E78D71 /* Screen3NameEmail.swift in Sources */,
-				C191F03B24A0277E00E78D71 /* OnboardingModel.swift in Sources */,
+				C191F03B24A0277E00E78D71 /* Model.swift in Sources */,
 				C1FCBCEF248DFCD8005ACA30 /* Flow.swift in Sources */,
 				C147F742245FD18100CDB363 /* SceneDelegate.swift in Sources */,
 				C1FCBCEB248DFC5F005ACA30 /* FlowController.swift in Sources */,

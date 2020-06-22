@@ -9,12 +9,12 @@
 import SwiftUI
 
 protocol FlowControllerViewDelegate: class {
-    func didTapNextFromScreen1(vm: Screen1PhoneVM)
-    func didTapNextFromScreen2(vm: Screen2VerificationVM)
+    func didTapNext(vm: Screen1PhoneVM)
+    func didTapNext(vm: Screen2VerificationVM)
     func didTapCompanyInfo(vm: Screen3NameEmailVM)
     func didTapSkipCompanyInfo(vm: Screen3NameEmailVM)
-    func didTapNextFromScreen4(vm: Screen4WorkInfoVM)
-    func didTapNextFromScreen5()
+    func didTapNext(vm: Screen4WorkInfoVM)
+    func didTapComplete()
     func make() -> Screen1PhoneVM
     func make() -> Screen2VerificationVM
     func make() -> Screen3NameEmailVM
@@ -31,7 +31,7 @@ enum NavigateTo {
     case finalFrom4
 }
 
-struct FlowControllerView: View {
+struct FlowControllerView: View, FlowControllerViewProtocol {
 
     weak var delegate: FlowControllerViewDelegate!
 
@@ -65,14 +65,14 @@ struct FlowControllerView: View {
     var screen1Phone: LazyView<Screen1Phone> {
         return LazyView(Screen1Phone(
             vm: self.delegate.make(),
-            didTapNext: self.delegate.didTapNextFromScreen1
+            didTapNext: self.delegate.didTapNext
         ))
     }
 
     var screen2Verification: LazyView<Screen2Verification> {
         return LazyView(Screen2Verification(
             vm: self.delegate.make(),
-            didTapNext: self.delegate.didTapNextFromScreen2
+            didTapNext: self.delegate.didTapNext
         ))
     }
 
@@ -87,14 +87,14 @@ struct FlowControllerView: View {
     var screen4CompanyInfo: LazyView<Screen4CompanyInfo> {
         return LazyView(Screen4CompanyInfo(
             vm: self.delegate.make(),
-            didTapNext: self.delegate.didTapNextFromScreen4
+            didTapNext: self.delegate.didTapNext
         ))
     }
 
     var screen5Final: LazyView<Screen5Final> {
         return LazyView(Screen5Final(
             vm: self.delegate.make(),
-            didTapNext: self.delegate.didTapNextFromScreen5
+            didTapNext: self.delegate.didTapComplete
         ))
     }
 
