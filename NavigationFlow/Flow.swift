@@ -8,23 +8,19 @@
 
 import SwiftUI
 
-class FlowState: ObservableObject {
-    @Published var next: Bool = false
-}
-
 struct Flow<Content>: View where Content: View {
-    @ObservedObject var state: FlowState
+    @Binding var next: Bool
     var content: Content
     var body: some View {
         NavigationLink(
             destination: VStack() { content },
-            isActive: $state.next
+            isActive: $next
         ) {
             EmptyView()
         }
     }
-    init(state: FlowState, @ViewBuilder content: () -> Content) {
-        self.state = state
+    init(next: Binding<Bool>, @ViewBuilder content: () -> Content) {
+        self._next = next
         self.content = content()
     }
 }

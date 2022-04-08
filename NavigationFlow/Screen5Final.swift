@@ -7,23 +7,31 @@
 //
 
 import SwiftUI
+import Combine
 
-class Screen5FinalVM: ObservableObject {
+final class Screen5FinalVM: ObservableObject, Completeable {
     let name: String
 
+    let didComplete = PassthroughSubject<Screen5FinalVM, Never>()
+    
     init(name: String) {
         self.name = name
+    }
+    
+    fileprivate func didTapNext() {
+        //do some network calls etc
+        sleep(1)
+        didComplete.send(self)
     }
 }
 
 struct Screen5Final: View {
     @ObservedObject var vm: Screen5FinalVM
-    let didTapNext: () -> ()
 
     var body: some View {
         VStack(alignment: .center) {
             Text("Welcome to the app, \(vm.name)")
-            Button(action: { self.didTapNext() }, label: { Text("Next") })
+            Button(action: { self.vm.didTapNext() }, label: { Text("Next") })
         }.padding()
     }
 }

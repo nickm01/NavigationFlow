@@ -7,28 +7,48 @@
 //
 
 import SwiftUI
+import Combine
 
-class Screen3NameEmailVM: ObservableObject {
+final class Screen3NameEmailVM: ObservableObject {
     @Published var name = ""
     @Published var personalEmail = ""
+    
+    let didComplete = PassthroughSubject<Screen3NameEmailVM, Never>()
+    let skipRequested = PassthroughSubject<Screen3NameEmailVM, Never>()
+    
+    fileprivate func didTapNext() {
+        //do some network calls etc
+        sleep(1)
+        didComplete.send(self)
+    }
+    
+    fileprivate func didTapSkip() {
+        skipRequested.send(self)
+    }
 }
 
 struct Screen3NameEmail: View {
     @ObservedObject var vm: Screen3NameEmailVM
-    let didTapCompanyInfo: (Screen3NameEmailVM) -> ()
-    let didTapSkip: (Screen3NameEmailVM) -> ()
 
     var body: some View {
         VStack(alignment: .center) {
-            Text("Enter personal details")
+            Text("3: Enter personal details")
             TextField("Name", text: $vm.name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Personal Email", text: $vm.personalEmail)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Spacer()
                 .frame(height: 12)
-            Button(action: { self.didTapCompanyInfo(self.vm) }, label: { Text("Enter Company Info") })
-            Button(action: { self.didTapSkip(self.vm) }, label: { Text("Skip") })
+            Button(action: {
+                self.vm.didTapNext()
+            }, label: {
+                Text("Enter Company Info")
+            })
+            Button(action: {
+                self.vm.didTapSkip()
+            }, label: {
+                Text("Skip")
+            })
             Spacer()
         }.padding()
     }

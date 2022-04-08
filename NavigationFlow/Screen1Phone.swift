@@ -1,5 +1,5 @@
 //
-//  Screen1Email.swift
+//  Screen1Phone.swift
 //  NavigationFlow
 //
 //  Created by Nick McConnell on 6/21/20.
@@ -7,21 +7,31 @@
 //
 
 import SwiftUI
+import Combine
 
-class Screen1PhoneVM: ObservableObject {
+final class Screen1PhoneVM: ObservableObject, Completeable {
     @Published var phoneNumber = ""
+
+    let didComplete = PassthroughSubject<Screen1PhoneVM, Never>()
+
+    fileprivate func didTapNext() {
+        //do some network calls etc
+        sleep(1)
+        didComplete.send(self)
+    }
 }
 
 struct Screen1Phone: View {
     @ObservedObject var vm: Screen1PhoneVM
-    let didTapNext: (Screen1PhoneVM) -> ()
 
     var body: some View {
         VStack(alignment: .center) {
-            Text("We need your phone number for verification")
+            Text("1: We need your phone number for verification")
             TextField("Phone Number", text: $vm.phoneNumber)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            Button(action: { self.didTapNext(self.vm) }, label: { Text("Next") })
+            Button(action: {
+                self.vm.didTapNext()
+            }, label: { Text("Next") })
         }.padding()
     }
 }

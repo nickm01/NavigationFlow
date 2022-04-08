@@ -1,5 +1,5 @@
 //
-//  OnboardingModel.swift
+//  Model.swift
 //  NavigationFlow
 //
 //  Created by Nick McConnell on 6/21/20.
@@ -15,41 +15,3 @@ class Model {
     var workEmail: String?
 }
 
-// ViewModel Generation
-extension Model {
-    func make() -> Screen1PhoneVM {
-        return Screen1PhoneVM()
-    }
-
-    func make() -> Screen2VerificationVM {
-        return Screen2VerificationVM(phoneNumber: phoneNumber ?? "")
-    }
-
-    func make() -> Screen3NameEmailVM {
-        return Screen3NameEmailVM()
-    }
-
-    func make() -> Screen4WorkInfoVM {
-        return Screen4WorkInfoVM()
-    }
-
-    func make() -> Screen5FinalVM {
-        return Screen5FinalVM(name: name ?? "")
-    }
-}
-
-// Model updates from ViewModels
-extension Model {
-    func update(with vm: Screen1PhoneVM) {
-        phoneNumber = vm.phoneNumber
-    }
-
-    func update(with vm: Screen3NameEmailVM) {
-        name = vm.name
-        personalEmail = vm.personalEmail
-    }
-
-    func update(with vm: Screen4WorkInfoVM) {
-        workEmail = vm.workEmail
-    }
-}

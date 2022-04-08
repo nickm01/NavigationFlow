@@ -19,8 +19,8 @@
 		C191F03F24A03D5700E78D71 /* Screen4CompanyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F03E24A03D5700E78D71 /* Screen4CompanyInfo.swift */; };
 		C191F04124A040A800E78D71 /* Screen5Final.swift in Sources */ = {isa = PBXBuildFile; fileRef = C191F04024A040A800E78D71 /* Screen5Final.swift */; };
 		C191F04424A0792700E78D71 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C191F04324A0792700E78D71 /* README.md */; };
-		C1FCBCEB248DFC5F005ACA30 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEA248DFC5F005ACA30 /* FlowController.swift */; };
-		C1FCBCED248DFCA7005ACA30 /* FlowControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEC248DFCA7005ACA30 /* FlowControllerView.swift */; };
+		C1FCBCEB248DFC5F005ACA30 /* FlowVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEA248DFC5F005ACA30 /* FlowVM.swift */; };
+		C1FCBCED248DFCA7005ACA30 /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEC248DFCA7005ACA30 /* FlowView.swift */; };
 		C1FCBCEF248DFCD8005ACA30 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEE248DFCD8005ACA30 /* Flow.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +39,8 @@
 		C191F03E24A03D5700E78D71 /* Screen4CompanyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen4CompanyInfo.swift; sourceTree = "<group>"; };
 		C191F04024A040A800E78D71 /* Screen5Final.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5Final.swift; sourceTree = "<group>"; };
 		C191F04324A0792700E78D71 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C1FCBCEA248DFC5F005ACA30 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
-		C1FCBCEC248DFCA7005ACA30 /* FlowControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControllerView.swift; sourceTree = "<group>"; };
+		C1FCBCEA248DFC5F005ACA30 /* FlowVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowVM.swift; sourceTree = "<group>"; };
+		C1FCBCEC248DFCA7005ACA30 /* FlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowView.swift; sourceTree = "<group>"; };
 		C1FCBCEE248DFCD8005ACA30 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,10 +78,10 @@
 				C147F73F245FD18100CDB363 /* AppDelegate.swift */,
 				C147F741245FD18100CDB363 /* SceneDelegate.swift */,
 				C1FCBCEE248DFCD8005ACA30 /* Flow.swift */,
-				C1FCBCEA248DFC5F005ACA30 /* FlowController.swift */,
-				C1FCBCEC248DFCA7005ACA30 /* FlowControllerView.swift */,
+				C1FCBCEA248DFC5F005ACA30 /* FlowVM.swift */,
+				C1FCBCEC248DFCA7005ACA30 /* FlowView.swift */,
 				C191F03A24A0277E00E78D71 /* Model.swift */,
-				C191F04224A0424000E78D71 /* Screens and VMs */,
+				C191F04224A0424000E78D71 /* Screens and Screen VMs */,
 				C147F745245FD18300CDB363 /* Assets.xcassets */,
 				C147F74A245FD18300CDB363 /* LaunchScreen.storyboard */,
 				C147F74D245FD18300CDB363 /* Info.plist */,
@@ -98,7 +98,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C191F04224A0424000E78D71 /* Screens and VMs */ = {
+		C191F04224A0424000E78D71 /* Screens and Screen VMs */ = {
 			isa = PBXGroup;
 			children = (
 				C191F03624A01D5600E78D71 /* Screen1Phone.swift */,
@@ -107,7 +107,7 @@
 				C191F03E24A03D5700E78D71 /* Screen4CompanyInfo.swift */,
 				C191F04024A040A800E78D71 /* Screen5Final.swift */,
 			);
-			name = "Screens and VMs";
+			name = "Screens and Screen VMs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,14 +185,14 @@
 				C191F04124A040A800E78D71 /* Screen5Final.swift in Sources */,
 				C191F03924A021B400E78D71 /* Screen2Verification.swift in Sources */,
 				C191F03F24A03D5700E78D71 /* Screen4CompanyInfo.swift in Sources */,
-				C1FCBCED248DFCA7005ACA30 /* FlowControllerView.swift in Sources */,
+				C1FCBCED248DFCA7005ACA30 /* FlowView.swift in Sources */,
 				C147F740245FD18100CDB363 /* AppDelegate.swift in Sources */,
 				C191F03724A01D5600E78D71 /* Screen1Phone.swift in Sources */,
 				C191F03D24A0372E00E78D71 /* Screen3NameEmail.swift in Sources */,
 				C191F03B24A0277E00E78D71 /* Model.swift in Sources */,
 				C1FCBCEF248DFCD8005ACA30 /* Flow.swift in Sources */,
 				C147F742245FD18100CDB363 /* SceneDelegate.swift in Sources */,
-				C1FCBCEB248DFC5F005ACA30 /* FlowController.swift in Sources */,
+				C1FCBCEB248DFC5F005ACA30 /* FlowVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +333,7 @@
 				DEVELOPMENT_TEAM = ER4P375HZA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NavigationFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,6 +354,7 @@
 				DEVELOPMENT_TEAM = ER4P375HZA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NavigationFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

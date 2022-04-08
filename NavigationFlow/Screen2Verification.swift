@@ -7,26 +7,39 @@
 //
 
 import SwiftUI
+import Combine
 
-class Screen2VerificationVM: ObservableObject {
+final class Screen2VerificationVM: ObservableObject, Completeable {
     @Published var verification = ""
+    
     let phoneNumber: String
 
-    init(phoneNumber: String) {
-        self.phoneNumber = phoneNumber
+    let didComplete = PassthroughSubject<Screen2VerificationVM, Never>()
+    
+    init(phoneNumber: String?) {
+        self.phoneNumber = phoneNumber ?? ""
+    }
+    
+    fileprivate func didTapNext() {
+        //do some network calls etc
+        sleep(1)
+        didComplete.send(self)
     }
 }
 
 struct Screen2Verification: View {
     @ObservedObject var vm: Screen2VerificationVM
-    let didTapNext: (Screen2VerificationVM) -> ()
 
     var body: some View {
         VStack(alignment: .center) {
-            Text("Verification sent to \(vm.phoneNumber)")
+            Text("2: Verification sent to \(vm.phoneNumber)")
             TextField("Verfication Number", text: $vm.verification)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            Button(action: { self.didTapNext(self.vm) }, label: { Text("Next") })
+            Button(action: {
+                self.vm.didTapNext()
+            }, label: {
+                Text("Next")
+            })
         }.padding()
     }
 }
