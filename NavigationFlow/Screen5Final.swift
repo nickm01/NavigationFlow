@@ -14,7 +14,7 @@ final class Screen5FinalVM: ObservableObject, Completeable {
 
     let didComplete = PassthroughSubject<Screen5FinalVM, Never>()
     
-    init(name: String? = nil) {
+    init(name: String?) {
         self.name = name ?? ""
     }
     
@@ -25,7 +25,7 @@ final class Screen5FinalVM: ObservableObject, Completeable {
 }
 
 struct Screen5Final: View {
-    @ObservedObject var vm: Screen5FinalVM
+    @StateObject var vm: Screen5FinalVM
 
     var body: some View {
         VStack(alignment: .center) {

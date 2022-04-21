@@ -19,14 +19,22 @@ final class Screen1PhoneVM: ObservableObject, Completeable {
     
     let didComplete = PassthroughSubject<Screen1PhoneVM, Never>()
 
+    init(phoneNumber: String?) {
+        self.phoneNumber = phoneNumber ?? ""
+    }
+    
     fileprivate func didTapNext() {
         //do some network calls etc
+        guard isValid else {
+            return
+        }
+        
         didComplete.send(self)
     }
 }
 
 struct Screen1Phone: View {
-    @ObservedObject var vm: Screen1PhoneVM
+    @StateObject var vm: Screen1PhoneVM
 
     var body: some View {
         VStack(alignment: .center) {

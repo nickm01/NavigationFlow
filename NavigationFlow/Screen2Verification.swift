@@ -15,7 +15,7 @@ final class Screen2VerificationVM: ObservableObject, Completeable {
 
     let didComplete = PassthroughSubject<Screen2VerificationVM, Never>()
     
-    init(phoneNumber: String? = nil) {
+    init(phoneNumber: String?) {
         self.phoneNumber = phoneNumber ?? ""
     }
     
@@ -26,7 +26,7 @@ final class Screen2VerificationVM: ObservableObject, Completeable {
 }
 
 struct Screen2Verification: View {
-    @ObservedObject var vm: Screen2VerificationVM
+    @StateObject var vm: Screen2VerificationVM
 
     var body: some View {
         VStack(alignment: .center) {

@@ -16,6 +16,12 @@ final class Screen3NameEmailVM: ObservableObject {
     let didComplete = PassthroughSubject<Screen3NameEmailVM, Never>()
     let skipRequested = PassthroughSubject<Screen3NameEmailVM, Never>()
     
+    init(name: String? , personalEmail: String?) {
+        self.name = name ?? ""
+        self.personalEmail = name ?? ""
+    }
+    
+    
     fileprivate func didTapNext() {
         //do some network calls etc
         didComplete.send(self)
@@ -27,7 +33,7 @@ final class Screen3NameEmailVM: ObservableObject {
 }
 
 struct Screen3NameEmail: View {
-    @ObservedObject var vm: Screen3NameEmailVM
+    @StateObject var vm: Screen3NameEmailVM
 
     var body: some View {
         VStack(alignment: .center) {

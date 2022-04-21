@@ -18,15 +18,9 @@ class FlowVM: ObservableObject {
     // Note the final model is manually "bound" to the view models here.
     // Automatic binding would be possible with combine or even a single VM.
     // However this may not scale well
-    // and is makes the views dependant on something that is external to the view.
+    // and the views become dependant on something that is external to the view.
     private let model: Model
     var subscription = Set<AnyCancellable>()
-    
-    let screen1PhoneVM: Screen1PhoneVM
-    let screen2VerificationVM: Screen2VerificationVM
-    let screen3NameEmailVM: Screen3NameEmailVM
-    let screen4WorkInfoVM: Screen4WorkInfoVM
-    let screen5FinalVM: Screen5FinalVM
     
     @Published var navigateTo2: Bool = false
     @Published var navigateTo3: Bool = false
@@ -36,57 +30,66 @@ class FlowVM: ObservableObject {
     
     init() {
         self.model = Model()
-        screen1PhoneVM = Screen1PhoneVM()
-        screen2VerificationVM = Screen2VerificationVM()
-        screen3NameEmailVM = Screen3NameEmailVM()
-        screen4WorkInfoVM = Screen4WorkInfoVM()
-        screen5FinalVM = Screen5FinalVM()
-        
-        bindEvents()
     }
-    
-    func bindEvents() {
-        screen1PhoneVM.didComplete
+
+    func makeScreen1PhoneVM() -> Screen1PhoneVM {
+        let vm = Screen1PhoneVM(phoneNumber: model.phoneNumber)
+        vm.didComplete
             .sink(receiveValue: didComplete1)
             .store(in: &subscription)
-        
-        screen2VerificationVM.didComplete
+        return vm
+    }
+    
+    func makeScreen2VerificationVM() -> Screen2VerificationVM {
+        let vm = Screen2VerificationVM(phoneNumber: model.phoneNumber)
+        vm.didComplete
             .sink(receiveValue: didComplete2)
             .store(in: &subscription)
-        
-        screen3NameEmailVM.didComplete
+        return vm
+    }
+    
+    func makeScreen3NameEmailVM() -> Screen3NameEmailVM {
+        let vm = Screen3NameEmailVM(
+            name: model.name,
+            personalEmail: model.workEmail
+        )
+        vm.didComplete
             .sink(receiveValue: didComplete3)
             .store(in: &subscription)
-        
-        screen3NameEmailVM.skipRequested
+        vm.skipRequested
             .sink(receiveValue: skipRequested)
             .store(in: &subscription)
-        
-        screen4WorkInfoVM.didComplete
+        return vm
+    }
+    
+    func makeScreen4WorkInfoVM() -> Screen4WorkInfoVM {
+        let vm = Screen4WorkInfoVM(workEmail: model.workEmail)
+        vm.didComplete
             .sink(receiveValue: didComplete4)
             .store(in: &subscription)
-        
-        screen4WorkInfoVM.goToRootRequested
+        vm.goToRootRequested
             .sink(receiveValue: goToRootRequested)
             .store(in: &subscription)
-        
-        screen4WorkInfoVM.goTo2Requested
+        vm.goTo2Requested
             .sink(receiveValue: goTo2Requested)
             .store(in: &subscription)
-        
-        screen4WorkInfoVM.goTo3Requested
+        vm.goTo3Requested
             .sink(receiveValue: goTo3Requested)
             .store(in: &subscription)
-        
-        screen5FinalVM.didComplete
+        return vm
+    }
+    
+    func makeScreen5FinalVM() -> Screen5FinalVM {
+        let vm = Screen5FinalVM(name: model.name)
+        vm.didComplete
             .sink(receiveValue: didComplete5)
             .store(in: &subscription)
+        return vm
     }
     
     func didComplete1(vm: Screen1PhoneVM) {
         // Additional logic inc. updating model
         model.phoneNumber = vm.phoneNumber
-        screen2VerificationVM.phoneNumber = vm.phoneNumber
         navigateTo2 = true
     }
     
@@ -130,7 +133,6 @@ class FlowVM: ObservableObject {
 
     func goTo3Requested(vm: Screen4WorkInfoVM) {
         // Additional logic
-        screen3NameEmailVM.name = "back"
         navigateTo4 = false
     }
     

@@ -10,28 +10,27 @@ import SwiftUI
 
 struct FlowView: View {
     
-    @ObservedObject var vm: FlowVM
+    @StateObject var vm: FlowVM
 
-    init(vm: FlowVM) {
-        self.vm = vm
-    }
-
+    // Note the generation of view models here is only done once
+    // as long as the view models are referenced as @StateObject and not @ObservedObject
+    
     var body: some View {
         NavigationView {
             VStack() {
-                Screen1Phone(vm: vm.screen1PhoneVM)
+                Screen1Phone(vm: vm.makeScreen1PhoneVM())
                 Flow(next: $vm.navigateTo2) {
-                    Screen2Verification(vm: vm.screen2VerificationVM)
+                    Screen2Verification(vm: vm.makeScreen2VerificationVM())
                     Flow(next: $vm.navigateTo3) {
-                        Screen3NameEmail(vm: vm.screen3NameEmailVM)
+                        Screen3NameEmail(vm: vm.makeScreen3NameEmailVM())
                         Flow(next: $vm.navigateTo4) {
-                            Screen4CompanyInfo(vm: vm.screen4WorkInfoVM)
+                            Screen4CompanyInfo(vm: vm.makeScreen4WorkInfoVM())
                             Flow(next: $vm.navigateToFinalFrom4) {
-                                Screen5Final(vm: vm.screen5FinalVM)
+                                Screen5Final(vm: vm.makeScreen5FinalVM())
                             }
                         }
                         Flow(next: $vm.navigateToFinalFrom3) {
-                            Screen5Final(vm: vm.screen5FinalVM)
+                            Screen5Final(vm: vm.makeScreen5FinalVM())
                         }
                     }
                 }

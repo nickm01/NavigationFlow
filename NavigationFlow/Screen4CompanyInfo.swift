@@ -10,13 +10,17 @@ import SwiftUI
 import Combine
 
 final class Screen4WorkInfoVM: ObservableObject, Completeable {
-    @Published var workEmail = ""
+    @Published var workEmail: String
     
     let didComplete = PassthroughSubject<Screen4WorkInfoVM, Never>()
     let goToRootRequested = PassthroughSubject<Screen4WorkInfoVM, Never>()
     let goTo2Requested = PassthroughSubject<Screen4WorkInfoVM, Never>()
     let goTo3Requested = PassthroughSubject<Screen4WorkInfoVM, Never>()
 
+    init(workEmail: String?) {
+        self.workEmail = workEmail ?? ""
+    }
+    
     fileprivate func didTapNext() {
         //do some network calls etc
         didComplete.send(self)
@@ -36,7 +40,7 @@ final class Screen4WorkInfoVM: ObservableObject, Completeable {
 }
 
 struct Screen4CompanyInfo: View {
-    @ObservedObject var vm: Screen4WorkInfoVM
+    @StateObject var vm: Screen4WorkInfoVM
 
     var body: some View {
         VStack(alignment: .center) {
