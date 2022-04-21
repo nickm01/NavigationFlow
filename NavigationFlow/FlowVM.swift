@@ -42,6 +42,10 @@ class FlowVM: ObservableObject {
         screen4WorkInfoVM = Screen4WorkInfoVM()
         screen5FinalVM = Screen5FinalVM()
         
+        bindEvents()
+    }
+    
+    func bindEvents() {
         screen1PhoneVM.didComplete
             .sink(receiveValue: didComplete1)
             .store(in: &subscription)
@@ -77,7 +81,6 @@ class FlowVM: ObservableObject {
         screen5FinalVM.didComplete
             .sink(receiveValue: didComplete5)
             .store(in: &subscription)
-        
     }
     
     func didComplete1(vm: Screen1PhoneVM) {

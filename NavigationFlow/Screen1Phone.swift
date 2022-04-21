@@ -11,7 +11,12 @@ import Combine
 
 final class Screen1PhoneVM: ObservableObject, Completeable {
     @Published var phoneNumber = ""
-
+    
+    // would be more complex
+    var isValid: Bool {
+        !phoneNumber.isEmpty
+    }
+    
     let didComplete = PassthroughSubject<Screen1PhoneVM, Never>()
 
     fileprivate func didTapNext() {
@@ -31,6 +36,7 @@ struct Screen1Phone: View {
             Button(action: {
                 self.vm.didTapNext()
             }, label: { Text("Next") })
+            .disabled(!vm.isValid)
         }.padding()
     }
 }
