@@ -40,7 +40,6 @@ struct Screen1Phone: View {
         VStack(alignment: .center) {
             Text("1: We need your phone number for verification")
             TextField("Phone Number", text: $vm.phoneNumber)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
             Button(action: {
                 self.vm.didTapNext()
             }, label: { Text("Next") })

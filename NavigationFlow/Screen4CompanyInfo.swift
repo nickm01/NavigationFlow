@@ -46,7 +46,6 @@ struct Screen4CompanyInfo: View {
         VStack(alignment: .center) {
             Text("4: Enter Work Details")
             TextField("Work Email", text: $vm.workEmail)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
             Button(action: { self.vm.didTapNext() }, label: { Text("Next") })
             Text("")
             Text("Test other programmatic navigation")

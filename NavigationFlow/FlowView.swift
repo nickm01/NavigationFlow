@@ -35,6 +35,8 @@ struct FlowView: View {
                     }
                 }
             }
-        }.navigationViewStyle(.stack)
+        }
+        .navigationViewStyle(.stack)
+        .textFieldStyle(RoundedBorderTextFieldStyle())
     }
 }

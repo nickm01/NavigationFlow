@@ -32,7 +32,6 @@ struct Screen2Verification: View {
         VStack(alignment: .center) {
             Text("2: Verification sent to \(vm.phoneNumber)")
             TextField("Verfication Number", text: $vm.verification)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
             Button(action: {
                 self.vm.didTapNext()
             }, label: {

@@ -39,9 +39,7 @@ struct Screen3NameEmail: View {
         VStack(alignment: .center) {
             Text("3: Enter personal details")
             TextField("Name", text: $vm.name)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Personal Email", text: $vm.personalEmail)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
             Spacer()
                 .frame(height: 12)
             Button(action: {
