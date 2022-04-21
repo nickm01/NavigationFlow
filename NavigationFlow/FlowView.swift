@@ -11,39 +11,20 @@ import SwiftUI
 struct FlowView: View {
     
     @ObservedObject var vm: FlowVM
-    
+
+    let screen1Phone: Screen1Phone
+    let screen2Verification: Screen2Verification
+    let screen3NameEmail: Screen3NameEmail
+    let screen4CompanyInfo: Screen4CompanyInfo
+    let screen5Final: Screen5Final
+
     init(vm: FlowVM) {
         self.vm = vm
-    }
-
-    var screen1Phone: LazyView<Screen1Phone> {
-        return LazyView(Screen1Phone(
-            vm: self.vm.screen1PhoneVM
-        ))
-    }
-
-    var screen2Verification: LazyView<Screen2Verification> {
-        return LazyView(Screen2Verification(
-            vm: self.vm.screen2VerificationVM
-        ))
-    }
-
-    var screen3NameEmail: LazyView<Screen3NameEmail> {
-        return LazyView(Screen3NameEmail(
-            vm: self.vm.screen3NameEmailVM
-        ))
-    }
-
-    var screen4CompanyInfo: LazyView<Screen4CompanyInfo> {
-        return LazyView(Screen4CompanyInfo(
-            vm: self.vm.screen4WorkInfoVM
-        ))
-    }
-
-    var screen5Final: LazyView<Screen5Final> {
-        return LazyView(Screen5Final(
-            vm: self.vm.screen5FinalVM
-        ))
+        screen1Phone = Screen1Phone(vm: vm.screen1PhoneVM)
+        screen2Verification = Screen2Verification(vm: vm.screen2VerificationVM)
+        screen3NameEmail = Screen3NameEmail(vm: vm.screen3NameEmailVM)
+        screen4CompanyInfo = Screen4CompanyInfo(vm: vm.screen4WorkInfoVM)
+        screen5Final = Screen5Final(vm: vm.screen5FinalVM)
     }
 
     var body: some View {

@@ -19,7 +19,6 @@ final class Screen4WorkInfoVM: ObservableObject, Completeable {
 
     fileprivate func didTapNext() {
         //do some network calls etc
-        sleep(1)
         didComplete.send(self)
     }
     

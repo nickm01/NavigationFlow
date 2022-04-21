@@ -11,18 +11,16 @@ import Combine
 
 final class Screen2VerificationVM: ObservableObject, Completeable {
     @Published var verification = ""
-    
-    let phoneNumber: String
+    var phoneNumber: String
 
     let didComplete = PassthroughSubject<Screen2VerificationVM, Never>()
     
-    init(phoneNumber: String?) {
+    init(phoneNumber: String? = nil) {
         self.phoneNumber = phoneNumber ?? ""
     }
     
     fileprivate func didTapNext() {
         //do some network calls etc
-        sleep(1)
         didComplete.send(self)
     }
 }

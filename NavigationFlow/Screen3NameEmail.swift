@@ -18,7 +18,6 @@ final class Screen3NameEmailVM: ObservableObject {
     
     fileprivate func didTapNext() {
         //do some network calls etc
-        sleep(1)
         didComplete.send(self)
     }
     

@@ -14,13 +14,12 @@ final class Screen5FinalVM: ObservableObject, Completeable {
 
     let didComplete = PassthroughSubject<Screen5FinalVM, Never>()
     
-    init(name: String) {
-        self.name = name
+    init(name: String? = nil) {
+        self.name = name ?? ""
     }
     
     fileprivate func didTapNext() {
         //do some network calls etc
-        sleep(1)
         didComplete.send(self)
     }
 }
