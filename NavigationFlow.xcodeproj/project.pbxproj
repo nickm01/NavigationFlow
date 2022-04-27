@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BCFB66522819B62100D2B298 /* NavigationFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB66512819B62100D2B298 /* NavigationFlowTests.swift */; };
 		C147F740245FD18100CDB363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C147F73F245FD18100CDB363 /* AppDelegate.swift */; };
 		C147F742245FD18100CDB363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C147F741245FD18100CDB363 /* SceneDelegate.swift */; };
 		C147F746245FD18300CDB363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C147F745245FD18300CDB363 /* Assets.xcassets */; };
@@ -24,7 +25,19 @@
 		C1FCBCEF248DFCD8005ACA30 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEE248DFCD8005ACA30 /* Flow.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BCFB66532819B62100D2B298 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C147F734245FD18100CDB363 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C147F73B245FD18100CDB363;
+			remoteInfo = NavigationFlow;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		BCFB664F2819B62100D2B298 /* NavigationFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCFB66512819B62100D2B298 /* NavigationFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFlowTests.swift; sourceTree = "<group>"; };
 		C147F73C245FD18100CDB363 /* NavigationFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C147F73F245FD18100CDB363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C147F741245FD18100CDB363 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +58,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BCFB664C2819B62100D2B298 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C147F739245FD18100CDB363 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,11 +75,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BCFB66502819B62100D2B298 /* NavigationFlowTests */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB66512819B62100D2B298 /* NavigationFlowTests.swift */,
+			);
+			path = NavigationFlowTests;
+			sourceTree = "<group>";
+		};
 		C147F733245FD18100CDB363 = {
 			isa = PBXGroup;
 			children = (
 				C191F04324A0792700E78D71 /* README.md */,
 				C147F73E245FD18100CDB363 /* NavigationFlow */,
+				BCFB66502819B62100D2B298 /* NavigationFlowTests */,
 				C147F73D245FD18100CDB363 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				C147F73C245FD18100CDB363 /* NavigationFlow.app */,
+				BCFB664F2819B62100D2B298 /* NavigationFlowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,6 +143,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BCFB664E2819B62100D2B298 /* NavigationFlowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCFB66552819B62100D2B298 /* Build configuration list for PBXNativeTarget "NavigationFlowTests" */;
+			buildPhases = (
+				BCFB664B2819B62100D2B298 /* Sources */,
+				BCFB664C2819B62100D2B298 /* Frameworks */,
+				BCFB664D2819B62100D2B298 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCFB66542819B62100D2B298 /* PBXTargetDependency */,
+			);
+			name = NavigationFlowTests;
+			productName = NavigationFlowTests;
+			productReference = BCFB664F2819B62100D2B298 /* NavigationFlowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C147F73B245FD18100CDB363 /* NavigationFlow */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C147F750245FD18300CDB363 /* Build configuration list for PBXNativeTarget "NavigationFlow" */;
@@ -136,10 +184,14 @@
 		C147F734245FD18100CDB363 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Nick McConnell";
 				TargetAttributes = {
+					BCFB664E2819B62100D2B298 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = C147F73B245FD18100CDB363;
+					};
 					C147F73B245FD18100CDB363 = {
 						CreatedOnToolsVersion = 11.4;
 					};
@@ -159,11 +211,19 @@
 			projectRoot = "";
 			targets = (
 				C147F73B245FD18100CDB363 /* NavigationFlow */,
+				BCFB664E2819B62100D2B298 /* NavigationFlowTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BCFB664D2819B62100D2B298 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C147F73A245FD18100CDB363 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -178,6 +238,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BCFB664B2819B62100D2B298 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCFB66522819B62100D2B298 /* NavigationFlowTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C147F738245FD18100CDB363 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,6 +266,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BCFB66542819B62100D2B298 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C147F73B245FD18100CDB363 /* NavigationFlow */;
+			targetProxy = BCFB66532819B62100D2B298 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C147F74A245FD18300CDB363 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -210,6 +286,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BCFB66562819B62100D2B298 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ER4P375HZA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NM.NavigationFlowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NavigationFlow.app/NavigationFlow";
+			};
+			name = Debug;
+		};
+		BCFB66572819B62100D2B298 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ER4P375HZA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NM.NavigationFlowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NavigationFlow.app/NavigationFlow";
+			};
+			name = Release;
+		};
 		C147F74E245FD18300CDB363 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -369,6 +487,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BCFB66552819B62100D2B298 /* Build configuration list for PBXNativeTarget "NavigationFlowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCFB66562819B62100D2B298 /* Debug */,
+				BCFB66572819B62100D2B298 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C147F737245FD18100CDB363 /* Build configuration list for PBXProject "NavigationFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

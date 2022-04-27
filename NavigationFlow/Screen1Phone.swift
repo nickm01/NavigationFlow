@@ -23,7 +23,7 @@ final class Screen1PhoneVM: ObservableObject, Completeable {
         self.phoneNumber = phoneNumber ?? ""
     }
     
-    fileprivate func didTapNext() {
+    func didTapNext() {
         //do some network calls etc
         guard isValid else {
             return

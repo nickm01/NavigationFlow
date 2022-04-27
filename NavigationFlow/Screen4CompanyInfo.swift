@@ -21,20 +21,20 @@ final class Screen4WorkInfoVM: ObservableObject, Completeable {
         self.workEmail = workEmail ?? ""
     }
     
-    fileprivate func didTapNext() {
+    func didTapNext() {
         //do some network calls etc
         didComplete.send(self)
     }
     
-    fileprivate func didTapGoBackToRoot() {
+    func didTapGoBackToRoot() {
         goToRootRequested.send(self)
     }
     
-    fileprivate func didTapGoBack2() {
+    func didTapGoBack2() {
         goTo2Requested.send(self)
     }
     
-    fileprivate func didTapGoBack3() {
+    func didTapGoBack3() {
         goTo3Requested.send(self)
     }
 }

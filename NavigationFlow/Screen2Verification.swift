@@ -19,7 +19,7 @@ final class Screen2VerificationVM: ObservableObject, Completeable {
         self.phoneNumber = phoneNumber ?? ""
     }
     
-    fileprivate func didTapNext() {
+    func didTapNext() {
         //do some network calls etc
         didComplete.send(self)
     }

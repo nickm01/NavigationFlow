@@ -22,7 +22,7 @@ final class Screen3NameEmailVM: ObservableObject {
     }
     
     
-    fileprivate func didTapNext() {
+    func didTapNext() {
         //do some network calls etc
         didComplete.send(self)
     }

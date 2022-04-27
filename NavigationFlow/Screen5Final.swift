@@ -18,7 +18,7 @@ final class Screen5FinalVM: ObservableObject, Completeable {
         self.name = name ?? ""
     }
     
-    fileprivate func didTapNext() {
+    func didTapNext() {
         //do some network calls etc
         didComplete.send(self)
     }
