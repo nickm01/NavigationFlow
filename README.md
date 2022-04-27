@@ -1,4 +1,4 @@
-# Multi-Screen Data Entry Flow with SwiftUI and MVVM
+# Multi-Screen Data Entry Flow with SwiftUI
 
 I’ve been looking at the creation of a multi-screen onboarding flow for my next app and challenging myself to use SwiftUI completely. As with all mutli-screen data entry flows, they often represent an interesting problem of how to separate out data, view and navigation logic. I thought SwiftUI’s declarative nature and lean towards view models would be a great opportunity.
 Before we start what make’s a great multi-screen data entry flow? Here’s what I came up with. For want of a less grand term, I’ll call it my **“screen flow manifesto”**:
