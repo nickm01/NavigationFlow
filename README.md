@@ -14,4 +14,3 @@ Note: This has been updated for SwiftUI 3 / Xcode 13.  Older versions of this im
 Read more
 [part1](https://medium.com/@nicmcconn/flow-with-swiftui-and-mvvm-7cc394440ab8)
 [part2](https://medium.com/@nicmcconn/flow-with-swiftui-and-mvvm-part-2-viewmodels-905ecc05f1c5)
-
