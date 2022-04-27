@@ -11,4 +11,4 @@ Before we start what make’s a great multi-screen data entry flow? Here’s wha
 
 Note: This has been updated for SwiftUI 3 / Xcode 13.  Older versions of this implementation can be found in part1 and part2 branches.
 
-Read more[here](https://medium.com/@nicmcconn/791f89421923)
+Read more [here](https://medium.com/@nicmcconn/791f89421923)
