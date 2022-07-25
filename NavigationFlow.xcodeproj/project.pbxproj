@@ -22,7 +22,6 @@
 		C191F04424A0792700E78D71 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C191F04324A0792700E78D71 /* README.md */; };
 		C1FCBCEB248DFC5F005ACA30 /* FlowVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEA248DFC5F005ACA30 /* FlowVM.swift */; };
 		C1FCBCED248DFCA7005ACA30 /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEC248DFCA7005ACA30 /* FlowView.swift */; };
-		C1FCBCEF248DFCD8005ACA30 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FCBCEE248DFCD8005ACA30 /* Flow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +53,6 @@
 		C191F04324A0792700E78D71 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C1FCBCEA248DFC5F005ACA30 /* FlowVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowVM.swift; sourceTree = "<group>"; };
 		C1FCBCEC248DFCA7005ACA30 /* FlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowView.swift; sourceTree = "<group>"; };
-		C1FCBCEE248DFCD8005ACA30 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +105,6 @@
 			children = (
 				C147F73F245FD18100CDB363 /* AppDelegate.swift */,
 				C147F741245FD18100CDB363 /* SceneDelegate.swift */,
-				C1FCBCEE248DFCD8005ACA30 /* Flow.swift */,
 				C1FCBCEA248DFC5F005ACA30 /* FlowVM.swift */,
 				C1FCBCEC248DFCA7005ACA30 /* FlowView.swift */,
 				C191F03A24A0277E00E78D71 /* Model.swift */,
@@ -258,7 +255,6 @@
 				C191F03724A01D5600E78D71 /* Screen1Phone.swift in Sources */,
 				C191F03D24A0372E00E78D71 /* Screen3NameEmail.swift in Sources */,
 				C191F03B24A0277E00E78D71 /* Model.swift in Sources */,
-				C1FCBCEF248DFCD8005ACA30 /* Flow.swift in Sources */,
 				C147F742245FD18100CDB363 /* SceneDelegate.swift in Sources */,
 				C1FCBCEB248DFC5F005ACA30 /* FlowVM.swift in Sources */,
 			);
@@ -378,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -432,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -451,7 +447,7 @@
 				DEVELOPMENT_TEAM = ER4P375HZA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NavigationFlow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,7 +468,7 @@
 				DEVELOPMENT_TEAM = ER4P375HZA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NavigationFlow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

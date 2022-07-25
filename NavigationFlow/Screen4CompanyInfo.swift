@@ -9,7 +9,8 @@
 import SwiftUI
 import Combine
 
-final class Screen4WorkInfoVM: ObservableObject, Completeable {
+final class Screen4WorkInfoVM: ObservableObject, Completeable, Navigable {
+    let id = UUID()
     @Published var workEmail: String
     
     let didComplete = PassthroughSubject<Screen4WorkInfoVM, Never>()

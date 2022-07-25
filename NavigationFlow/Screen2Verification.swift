@@ -9,7 +9,10 @@
 import SwiftUI
 import Combine
 
-final class Screen2VerificationVM: ObservableObject, Completeable {
+
+final class Screen2VerificationVM: ObservableObject, Completeable, Navigable {
+    let id = UUID()
+    
     @Published var verification = ""
     var phoneNumber: String
 
@@ -24,6 +27,7 @@ final class Screen2VerificationVM: ObservableObject, Completeable {
         didComplete.send(self)
     }
 }
+
 
 struct Screen2Verification: View {
     @StateObject var vm: Screen2VerificationVM

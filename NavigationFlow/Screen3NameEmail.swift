@@ -9,7 +9,9 @@
 import SwiftUI
 import Combine
 
-final class Screen3NameEmailVM: ObservableObject {
+final class Screen3NameEmailVM: ObservableObject, Navigable {
+    let id = UUID()
+    
     @Published var name = ""
     @Published var personalEmail = ""
     

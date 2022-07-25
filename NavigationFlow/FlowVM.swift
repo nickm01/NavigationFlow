@@ -8,9 +8,25 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 protocol Completeable {
     var didComplete: PassthroughSubject<Self, Never> { get }
+}
+
+protocol Navigable: Identifiable, Hashable {
+    var id: UUID { get }
+    static func == (lhs: Self, rhs: Self) -> Bool
+    func hash(into hasher: inout Hasher)
+}
+
+extension Navigable where Self : AnyObject  {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.id == rhs.id
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 class FlowVM: ObservableObject {
@@ -22,11 +38,7 @@ class FlowVM: ObservableObject {
     private let model: Model
     var subscription = Set<AnyCancellable>()
     
-    @Published var navigateTo2: Bool = false
-    @Published var navigateTo3: Bool = false
-    @Published var navigateTo4: Bool = false
-    @Published var navigateToFinalFrom3: Bool = false
-    @Published var navigateToFinalFrom4: Bool = false
+    @Published var navigationPath = NavigationPath()
     
     init() {
         self.model = Model()
@@ -90,24 +102,25 @@ class FlowVM: ObservableObject {
     func didComplete1(vm: Screen1PhoneVM) {
         // Additional logic inc. updating model
         model.phoneNumber = vm.phoneNumber
-        navigateTo2 = true
+        navigationPath.append(makeScreen2VerificationVM())
     }
     
     func didComplete2(vm: Screen2VerificationVM) {
         // Additional logic
-        navigateTo3 = true
+        navigationPath.append(makeScreen3NameEmailVM())
     }
     
     func didComplete3(vm: Screen3NameEmailVM) {
         // Additional logic inc. updating model
         updateModel(vm: vm)
-        navigateTo4 = true
+        navigationPath.append(makeScreen4WorkInfoVM())
     }
     
     func skipRequested(vm: Screen3NameEmailVM) {
         // Additional logic inc. updating model
         updateModel(vm: vm)
-        navigateToFinalFrom3 = true
+        navigationPath.append(makeScreen5FinalVM())
+
     }
     
     func updateModel(vm: Screen3NameEmailVM) {
@@ -118,22 +131,20 @@ class FlowVM: ObservableObject {
     func didComplete4(vm: Screen4WorkInfoVM) {
         // Additional logic inc. updating model
         model.workEmail = vm.workEmail
-        navigateToFinalFrom4 = true
+        navigationPath.append(makeScreen5FinalVM())
     }
     
     func goToRootRequested(vm: Screen4WorkInfoVM) {
-        // Additional logic
-        navigateTo2 = false
+        navigationPath = .init()
     }
 
     func goTo2Requested(vm: Screen4WorkInfoVM) {
-        // Additional logic
-        navigateTo3 = false
+        // Could also do navigationPath.removeLast(2), but this is is less stable 
+        navigationPath = NavigationPath([makeScreen2VerificationVM()])
     }
 
     func goTo3Requested(vm: Screen4WorkInfoVM) {
-        // Additional logic
-        navigateTo4 = false
+        navigationPath.removeLast()
     }
     
     func didComplete5(vm: Screen5FinalVM) {
