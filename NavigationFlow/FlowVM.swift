@@ -14,19 +14,22 @@ protocol Completeable {
     var didComplete: PassthroughSubject<Self, Never> { get }
 }
 
-protocol Navigable: Identifiable, Hashable {
-    var id: UUID { get }
-    static func == (lhs: Self, rhs: Self) -> Bool
-    func hash(into hasher: inout Hasher)
-}
+protocol Navigable: AnyObject, Identifiable, Hashable {}
 
-extension Navigable where Self : AnyObject  {
+extension Navigable {
     static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.id == rhs.id
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+}
+
+enum Screen: Hashable {
+    case screen2(vm: Screen2VerificationVM)
+    case screen3(vm: Screen3NameEmailVM)
+    case screen4(vm: Screen4WorkInfoVM)
+    case screen5(vm: Screen5FinalVM)
 }
 
 class FlowVM: ObservableObject {
@@ -38,7 +41,7 @@ class FlowVM: ObservableObject {
     private let model: Model
     var subscription = Set<AnyCancellable>()
     
-    @Published var navigationPath = NavigationPath()
+    @Published var navigationPath: [Screen] = []
     
     init() {
         self.model = Model()
@@ -88,6 +91,9 @@ class FlowVM: ObservableObject {
         vm.goTo3Requested
             .sink(receiveValue: goTo3Requested)
             .store(in: &subscription)
+        vm.testActionRequested
+            .sink(receiveValue: testAction)
+            .store(in: &subscription)
         return vm
     }
     
@@ -102,25 +108,24 @@ class FlowVM: ObservableObject {
     func didComplete1(vm: Screen1PhoneVM) {
         // Additional logic inc. updating model
         model.phoneNumber = vm.phoneNumber
-        navigationPath.append(makeScreen2VerificationVM())
+        navigationPath.append(.screen2(vm: makeScreen2VerificationVM()))
     }
     
     func didComplete2(vm: Screen2VerificationVM) {
         // Additional logic
-        navigationPath.append(makeScreen3NameEmailVM())
+        navigationPath.append(.screen3(vm: makeScreen3NameEmailVM()))
     }
     
     func didComplete3(vm: Screen3NameEmailVM) {
         // Additional logic inc. updating model
         updateModel(vm: vm)
-        navigationPath.append(makeScreen4WorkInfoVM())
+        navigationPath.append(.screen4(vm: makeScreen4WorkInfoVM()))
     }
     
     func skipRequested(vm: Screen3NameEmailVM) {
         // Additional logic inc. updating model
         updateModel(vm: vm)
-        navigationPath.append(makeScreen5FinalVM())
-
+        navigationPath.append(.screen5(vm: makeScreen5FinalVM()))
     }
     
     func updateModel(vm: Screen3NameEmailVM) {
@@ -131,20 +136,26 @@ class FlowVM: ObservableObject {
     func didComplete4(vm: Screen4WorkInfoVM) {
         // Additional logic inc. updating model
         model.workEmail = vm.workEmail
-        navigationPath.append(makeScreen5FinalVM())
+        navigationPath.append(.screen5(vm: makeScreen5FinalVM()))
     }
     
     func goToRootRequested(vm: Screen4WorkInfoVM) {
-        navigationPath = .init()
+        navigationPath = []
     }
 
     func goTo2Requested(vm: Screen4WorkInfoVM) {
         // Could also do navigationPath.removeLast(2), but this is is less stable 
-        navigationPath = NavigationPath([makeScreen2VerificationVM()])
+        navigationPath = [.screen2(vm: makeScreen2VerificationVM())]
     }
 
     func goTo3Requested(vm: Screen4WorkInfoVM) {
         navigationPath.removeLast()
+    }
+    
+    func testAction(vm: Screen4WorkInfoVM) {
+        // This doesn't even make sense but it's possible
+        // Will feel like backwards navigation but you end up on the same screen with the first screen removed.
+        navigationPath.removeFirst()
     }
     
     func didComplete5(vm: Screen5FinalVM) {

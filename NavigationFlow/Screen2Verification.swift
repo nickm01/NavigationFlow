@@ -11,8 +11,6 @@ import Combine
 
 
 final class Screen2VerificationVM: ObservableObject, Completeable, Navigable {
-    let id = UUID()
-    
     @Published var verification = ""
     var phoneNumber: String
 

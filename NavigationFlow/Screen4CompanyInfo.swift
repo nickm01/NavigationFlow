@@ -10,13 +10,13 @@ import SwiftUI
 import Combine
 
 final class Screen4WorkInfoVM: ObservableObject, Completeable, Navigable {
-    let id = UUID()
     @Published var workEmail: String
     
     let didComplete = PassthroughSubject<Screen4WorkInfoVM, Never>()
     let goToRootRequested = PassthroughSubject<Screen4WorkInfoVM, Never>()
     let goTo2Requested = PassthroughSubject<Screen4WorkInfoVM, Never>()
     let goTo3Requested = PassthroughSubject<Screen4WorkInfoVM, Never>()
+    let testActionRequested = PassthroughSubject<Screen4WorkInfoVM, Never>()
 
     init(workEmail: String?) {
         self.workEmail = workEmail ?? ""
@@ -38,6 +38,10 @@ final class Screen4WorkInfoVM: ObservableObject, Completeable, Navigable {
     func didTapGoBack3() {
         goTo3Requested.send(self)
     }
+    
+    func testAction() {
+        testActionRequested.send(self)
+    }
 }
 
 struct Screen4CompanyInfo: View {
@@ -53,6 +57,7 @@ struct Screen4CompanyInfo: View {
             Button(action: { self.vm.didTapGoBackToRoot() }, label: { Text("Go back to root") })
             Button(action: { self.vm.didTapGoBack2() }, label: { Text("Go back to 2") })
             Button(action: { self.vm.didTapGoBack3() }, label: { Text("Go back to 3, change name") })
+            Button(action: { self.vm.testAction() }, label: { Text("Test") })
         }.padding()
     }
 }

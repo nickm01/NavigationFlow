@@ -17,18 +17,18 @@ struct FlowView: View {
             VStack() {
                 Screen1Phone(vm: vm.makeScreen1PhoneVM())
             }
-            .navigationDestination(for: Screen2VerificationVM.self) {vm in
-                Screen2Verification(vm: vm)
+            .navigationDestination(for: Screen.self) {screen in
+                switch screen {
+                case .screen2(vm: let vm):
+                    Screen2Verification(vm: vm)
+                case .screen3(vm: let vm):
+                    Screen3NameEmail(vm: vm)
+                case .screen4(vm: let vm):
+                    Screen4CompanyInfo(vm: vm)
+                case .screen5(vm: let vm):
+                    Screen5Final(vm: vm)
+                }
             }
-            .navigationDestination(for: Screen3NameEmailVM.self) {vm in
-                Screen3NameEmail(vm: vm)
-            }
-            .navigationDestination(for: Screen4WorkInfoVM.self ) {vm in
-                Screen4CompanyInfo(vm: vm)
-            }
-            .navigationDestination(for: Screen5FinalVM.self) {vm in
-                Screen5Final(vm: vm)
-            }                                   
         }
         .textFieldStyle(RoundedBorderTextFieldStyle())
     }

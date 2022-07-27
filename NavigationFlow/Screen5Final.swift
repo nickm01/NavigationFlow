@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 final class Screen5FinalVM: ObservableObject, Completeable, Navigable {
-    let id = UUID()
     let name: String
 
     let didComplete = PassthroughSubject<Screen5FinalVM, Never>()
