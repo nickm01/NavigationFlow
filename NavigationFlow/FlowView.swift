@@ -12,31 +12,24 @@ struct FlowView: View {
     
     @StateObject var vm: FlowVM
 
-    // Note the generation of view models here is only done once
-    // as long as the view models are referenced as @StateObject and not @ObservedObject
-    
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $vm.navigationPath) {
             VStack() {
                 Screen1Phone(vm: vm.makeScreen1PhoneVM())
-                Flow(next: $vm.navigateTo2) {
-                    Screen2Verification(vm: vm.makeScreen2VerificationVM())
-                    Flow(next: $vm.navigateTo3) {
-                        Screen3NameEmail(vm: vm.makeScreen3NameEmailVM())
-                        Flow(next: $vm.navigateTo4) {
-                            Screen4CompanyInfo(vm: vm.makeScreen4WorkInfoVM())
-                            Flow(next: $vm.navigateToFinalFrom4) {
-                                Screen5Final(vm: vm.makeScreen5FinalVM())
-                            }
-                        }
-                        Flow(next: $vm.navigateToFinalFrom3) {
-                            Screen5Final(vm: vm.makeScreen5FinalVM())
-                        }
-                    }
+            }
+            .navigationDestination(for: Screen.self) {screen in
+                switch screen {
+                case .screen2(vm: let vm):
+                    Screen2Verification(vm: vm)
+                case .screen3(vm: let vm):
+                    Screen3NameEmail(vm: vm)
+                case .screen4(vm: let vm):
+                    Screen4CompanyInfo(vm: vm)
+                case .screen5(vm: let vm):
+                    Screen5Final(vm: vm)
                 }
             }
         }
-        .navigationViewStyle(.stack)
         .textFieldStyle(RoundedBorderTextFieldStyle())
     }
 }

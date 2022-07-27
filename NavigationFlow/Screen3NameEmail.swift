@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-final class Screen3NameEmailVM: ObservableObject {
+final class Screen3NameEmailVM: ObservableObject, Navigable {
     @Published var name = ""
     @Published var personalEmail = ""
     
