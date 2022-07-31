@@ -11,7 +11,8 @@ Before we start what make’s a great multi-screen data entry flow? Here’s wha
 
 Note: This has been updated for SwiftUI 4 / Xcode 14.
 
-Read more [here](https://betterprogramming.pub/flow-navigation-with-swiftui-4-e006882c5efa), `master` bracnh.
+Read more [here](https://betterprogramming.pub/flow-navigation-with-swiftui-4-e006882c5efa)
 
 For SwiftUI 3: Read more [here](https://betterprogramming.pub/flow-navigation-with-swiftui-revisited-791f89421923), `swiftui3` branch
+
 For SwiftUI 1: Read more [here](https://medium.com/swlh/flow-with-swiftui-and-mvvm-7cc394440ab8), `swiftui1.part1` and `swiftui1.part2` branches
