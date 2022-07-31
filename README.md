@@ -9,6 +9,9 @@ Before we start what make’s a great multi-screen data entry flow? Here’s wha
 4. Flexible and allow for branching to different screens in the flow.
 5. As simple as possible but scalable.
 
-Note: This has been updated for SwiftUI 3 / Xcode 13.  Older versions of this implementation can be found in part1 and part2 branches.
+Note: This has been updated for SwiftUI 4 / Xcode 14.
 
-Read more [here](https://medium.com/@nicmcconn/791f89421923)
+Read more [here](https://betterprogramming.pub/flow-navigation-with-swiftui-4-e006882c5efa), `master` bracnh.
+
+For SwiftUI 3: Read more [here](https://betterprogramming.pub/flow-navigation-with-swiftui-revisited-791f89421923), `swiftui3` branch
+For SwiftUI 1: Read more [here](https://medium.com/swlh/flow-with-swiftui-and-mvvm-7cc394440ab8), `swiftui1.part1` and `swiftui1.part2` branches
